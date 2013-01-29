@@ -19,10 +19,10 @@ nav {
 h1 {
 	margin: 10px 25px;
 	padding: 10px;
-	border: 1px solid black;
-	border:1px solid red;
 	outline-style:solid;
 	outline-color:black;
+	border: 1px solid black;
+	border:1px solid red;
 	background-color: white;
 	font-family: sans-serif;
 	
