@@ -2,7 +2,7 @@
 
 var json = {
 	"employee1": {
-		"group":     ["Group", "Employee"],
+		"groups":     ["Group", "Employee"],
 		"fName":     ["First Name", "Troy"],
 		"lName":     ["Last Name", "Stevenson",],
 		"pNumber":   ["Phone Number", "(775)813-0784"],
