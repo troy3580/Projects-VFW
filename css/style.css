@@ -1,0 +1,27 @@
+ /*
+ VFW Project 1 Week 2: form.html Styles
+ by: Troy Steveson
+ 1/13/13 
+ for: CSS Styles
+ */
+ 
+body {
+	background-color: #e4e063
+	
+}
+
+form {
+	background-color: #fcd80b
+	
+}
+
+header {
+	background-color: #fcd80b;
+	padding-left: 75px;
+	padding-right: 25px;
+	border-style: double;
+}
+
+h1 {
+	color: black;
+}

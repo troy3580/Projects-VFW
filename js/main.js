@@ -41,7 +41,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 //Find the value of selected radio button.
 	function getSelectedRadio () {
-	 	var radios = document.forms[0].shift;
+	 	var radios = document.forms[0].shiftTime;
 	 	for(var i = 0; i<radios.length; i++){
 		 	if(radios[i].checked){
 		 		shiftValue = radios[i].value;
@@ -79,29 +79,30 @@ window.addEventListener("DOMContentLoaded", function () {
 		 	//to validate function, then passed there, in to the storeData Function
 		 	id  = key;
 		}
+	}
 //Gather all Form field value and store in an object
 //Objext properties contain array with the form and input value.
 	 	getSelectedRadio();
 	 	var item                            = {};
-	 		item.groups                      = ["Groups:",        $("groups").value];
+	 		item.group                      = ["Groups:",       $("group").value];
 	 		item.fName                      = ["Firest Name:",  $("fName").value];
 	 		item.lName                      = ["Last Name:",    $("lName").value];
 	 		item.eMail                      = ["Email:",        $("eMail").value];
 	 		item.pNumber                    = ["Phone Number:", $("pNumber").value];
-	 		item.reliable                   = ["reliable:",     $("reliable").value];
+	 		item.reliable                   = ["Reliable:",     $("reliable").value];
 	 		item.shiftTime                  = ["shift:",shiftTime];
-	 		item.notes                      = ["notes:", $("notes").value];
+	 		item.notes                      = ["Notes:", $("notes").value];
 //Save data into Local storage: Use Stringify to convert our object to a string.
 	 	localStorage.setItem(id, JSON.stringify(item));
 	 	alert("Employee is Saved!"); 	
- 	}
+// 	}
     
      	
  	function addNew () {
 	 	window.location.reload();
  	}
     
-//    item.shiftTime                = ["Shift", shiftValue];
+    item.shiftTime                = ["shiftTime", shift];
     
     
     
@@ -110,8 +111,9 @@ window.addEventListener("DOMContentLoaded", function () {
 	 	if(localStorage.length === 0){
 		 	alert("There is no data in local storage sucka!  Default info was added!"); 
 		 	autoFillData();
-	 	}
-//Write Data from local storage tot he browser.
+		 }
+	 }
+//Write Data from local storage to the browser.
 	 	var makeDiv = document.createElement("div");
 	 	makeDiv.setAttribute("id", "items");
 	 	var makeList = document.createElement("ul");
@@ -138,7 +140,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		 	}
 		 	makeItemLinks(localStorage.key(i), linksLi); //Create our edit and delete buttons/Link for each item in local storage.
 	 	}
- 	}
+	}
  	
  	//get the image for the right job
  	function getImage(jobName, makeSubList ){
@@ -206,6 +208,7 @@ window.addEventListener("DOMContentLoaded", function () {
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
+	
 		$("reliable").value  = item.reliable[1];
 		$("notes").value = item.notes[1];
 		
@@ -266,7 +269,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		 	getgroups.style.border        = "1px solid red";
 		 	messageAry.push(groupError);
 	 	}
-	 	
+	 }
 	 	//first name valitation
 	 	if(getfName.value                = ""){
 		 	var fNameError               = "Please enter a first name.";
@@ -306,12 +309,12 @@ window.addEventListener("DOMContentLoaded", function () {
 			 }
 			 e.preventDefault();
 			 return false;
-		}else{
+			  }else{
 			//if all is ok, save our data.  send the key value that came from the editData funcution
 			//remember the is was passed through the editSubmit
 			storeData (this.key);
 		 }
- 	}
+ 	
 //Variable defaults
  	var jobGroups = ["--Choose A Group--", "GSR", "Housekeeper", "Maintenance"],
  		shiftTime,
