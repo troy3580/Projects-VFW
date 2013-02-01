@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", function () {
 //Creat select field element and populate with options.
 	function makeJobs () {
 		var formTag = document.getElementsByTagName("form");  //formTag is an Array of all the tag names
- 		    selectLi = $("select"),
+ 		    selectLi = $("select");
  		    makeSelect = document.createElement("select");
 		    makeSelect.setAttribute("id", "groups");
 		for(var i=0, j=jobGroups.length; i<j; i++){
@@ -105,7 +105,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	 	if(localStorage.length === 0){
 		 	alert("There is no data in local storage sucka!  Default info was added!"); 
 		 	autoFillData();
-		 }
+		 
 	 }
 //Write Data from local storage to the browser.
 	 	var makeDiv = document.createElement("div");
@@ -124,7 +124,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		 	var obj = JSON.parse(value);
 		 	var makeSubList = document.createElement("ul");
 		 	makeli.appendChild(makeSubList);
-////////////////////////////////////////////////////////////////////////// 		 	getImage(obj.groups[1], makeSubList);
+            getImage(obj.group[1], makeSubList);
 		 	for(var n in obj){
 			 	var makeSubli = document.createElement("li");
 			 	makeSubList.appendChild(makeSubli);
@@ -134,14 +134,14 @@ window.addEventListener("DOMContentLoaded", function () {
 		 	}
 		 	makeItemLinks(localStorage.key(i), linksLi); //Create our edit and delete buttons/Link for each item in local storage.
 	 	}
-	
+	}
  	
 //get the image for the right job
  	function getImage(jobName, makeSubList){
 	 	var imageLi = document.createElement("li");
 	 	makeSubList.appendChild(imageLi);
 	 	var newImg = document.createElement("img");
-	 	var setSrc = newImg.setAttribute("src", "imgages/" + jobName + ".png");
+	 	var setSrc = newImg.setAttribute("src", "imgages/"+ jobName + ".png");
 	 	imageLi.appendChild(newImg);	 	
  	}
 
@@ -194,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		$("lName").value                  = item.lName[1];
 		$("email").value                  = item.email[1];
 		$("pNumber").value                = item.pNumber[1];
-		var radios                        = document.forms[0].time;
+		var radios                        = document.form[0].time;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value = "Day" && item.time[1] == "Day"){
 				radios[i].setAttribute("checked", "checked");
@@ -308,6 +308,8 @@ window.addEventListener("DOMContentLoaded", function () {
  	timeValue();
  	sliderValue();
  	deleteItem();
+ 	clearLocal ()
+ 	
 
 //Set Link & Submit Click Events
  	var displayLink = $("showLink");
